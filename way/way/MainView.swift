@@ -24,9 +24,12 @@ struct MainView: View {
     var northKorea = NorthKorea()
     var body: some View {
         NavigationView {
-            VStack{
+            VStack (spacing:0){
 //                Text("\(total.total)")
-//                ZStack {
+                ZStack{
+                    AngularGradient(gradient: Gradient(colors: [Color(red: 193/255, green: 234/255, blue: 249/255), Color.blue]),
+                                                    center: .topLeading,
+                                    angle: .degrees(180 + 45)).ignoresSafeArea()
 //                    Color(red: 193/255, green: 234/255, blue: 249/255).ignoresSafeArea()
                     VStack (spacing:0){
 //                        북한
@@ -418,25 +421,32 @@ struct MainView: View {
                                         .frame(width: 30, height: 30)
                                         .border(boxList.box_list[i].isBorder ? Color.gray : Color.clear)
                                 }
+                                
                             }
-                            Spacer()
+                            Spacer().frame(height: 150)
+                            
                         }
                         
                     }
                     
                     
                     VStack {
-                        Spacer()
+                        Spacer().frame(height: 700)
+
                         NavigationLink(destination: CreateContentView()){
                             Image("createbutton")
+                                .shadow(color: Color.black, radius: 4, x: 3, y: 3)
                         }
+                        
                     }
                     
                     
-//                }
+                }
+                
             }
             
         }
+        
         .environmentObject(boxList)
         .environmentObject(total)
     }

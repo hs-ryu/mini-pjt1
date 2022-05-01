@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CreateContentView: View {
+    
+    init() {
+        UITextView.appearance().backgroundColor = .clear
+    }
+    
     @Environment(\.presentationMode) var presentationMode
-
+    
     @EnvironmentObject var boxList: BoxViewModel
     @EnvironmentObject var total: TotalCntViewModel
     
@@ -20,9 +25,9 @@ struct CreateContentView: View {
     @State var title: String = ""
     @State var content: String = ""
     
-//    var formatter_time = DateFormatter().dateFormat("HH:mm")
-//    var current_time_string = formatter_time.string(from: Date())
-
+    //    var formatter_time = DateFormatter().dateFormat("HH:mm")
+    //    var current_time_string = formatter_time.string(from: Date())
+    
     
     @StateObject var locationManager = LocationManager()
     var userLatitude: Double {
@@ -35,36 +40,81 @@ struct CreateContentView: View {
     
     var body: some View {
         ZStack {
+            
             VStack{
+                Spacer()
                 Button(action: {
                     withAnimation{
                         self.showImagePicker.toggle()
                     }
                 }) {
                     if image == nil {
-                        Rectangle()
-                            .frame(width: 300, height: 300)
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.white)
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(red: 193/255, green: 234/255, blue: 249/255), lineWidth: 8)
+                            VStack{
+                                Image("imageselect")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            }.frame(width: 80, height: 80)
+                                
+                        }
+                        .frame(width: 300, height: 300)
+                        //                        RoundedRectangle(cornerRadius: 10)
+                        //                            .fill(Color.white)
+                        //                            .frame(width: 300, height: 300)
+                        //                            .border(Color.blue, width: 4)
+                        
+                        //                        Rectangle()
+                        //                            .fill(Color.white)
+                        //                            .frame(width: 300, height: 300)
+                        //                            .cornerRadius(10)
                     }
                     else {
-                        image?.resizable().frame(width: 300, height: 300)
-                            
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(red: 193/255, green: 234/255, blue: 249/255), lineWidth: 8)
+                            image?
+                                .resizable()
+//                                .frame(width: 300, height: 300)
+                                .cornerRadius(10)
+                        }.frame(width: 300, height: 300)
                     }
                 }
+                Spacer().frame(height: 50)
+                VStack (alignment: .leading) {
+                    Text("지금 어디신가요?")
+                        .font(.custom("BMJUAOTF", size:18))
+                    
+                    TextEditor(text: $title)
+                        .padding()
+                        .font(.custom("BMJUAOTF", size:15))
+                        .foregroundColor(Color.black)
+                        .background(Color(red: 193/255, green: 234/255, blue: 249/255))
+                        .lineSpacing(5)
+                        .disableAutocorrection(true)
+                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0,  maxHeight: 60)
+                        .border(Color(red: 193/255, green: 234/255, blue: 249/255), width: 5)
+                        .cornerRadius(10)
+                }.frame(width: 300, alignment: .trailing)
+                    
                 
-                Text("지금 어디신가요?")
-                TextEditor(text: $title)
-                    .padding()
-                    .foregroundColor(Color.black)
-                    .lineSpacing(5)
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0,  maxHeight: 50)
-                    .border(Color.black, width: 3)
-                Text("지금을 표현해주세요.")
-                TextEditor(text: $content)
-                    .padding()
-                    .foregroundColor(Color.black)
-                    .lineSpacing(5)
-                    .frame(minWidth: 0, maxWidth: 300, minHeight: 0,  maxHeight: 150)
-                    .border(Color.black, width: 3)
+                VStack (alignment: .leading) {
+                    Text("지금을 표현해주세요.")
+                        .font(.custom("BMJUAOTF", size:18))
+                    TextEditor(text: $content)
+                        .padding()
+                        .foregroundColor(Color.black)
+                        .font(.custom("BMJUAOTF", size:15))
+                        .background(Color(red: 193/255, green: 234/255, blue: 249/255))
+                        .lineSpacing(5)
+                        .disableAutocorrection(true)
+                        .frame(minWidth: 0, maxWidth: 300, minHeight: 0,  maxHeight: 150)
+                        .border(Color(red: 193/255, green: 234/255, blue: 249/255), width: 5)
+                        .cornerRadius(10)
+                }.frame(width: 300, alignment: .trailing)
                 Spacer()
                 
                 
@@ -74,7 +124,7 @@ struct CreateContentView: View {
             VStack {
                 Spacer()
                 Button(action: {
-//                   위치 정보로 메인 색깔 바꾸는 로직 작성.
+                    //                   위치 정보로 메인 색깔 바꾸는 로직 작성.
                     
                     for i in 0..<120 {
                         if boxList.box_list[i].left_lon < userLongitude && boxList.box_list[i].right_lon > userLongitude && boxList.box_list[i].top_lat >  userLatitude && boxList.box_list[i].bottom_lat < userLatitude {
@@ -91,15 +141,15 @@ struct CreateContentView: View {
                     }
                     
                     
-//                    ForEach (boxList.box_list, id: \.index) {
-//                        box in
-//                        if box.left_lon < userLongitude && box.right_lon > userLongitude && box.top_lat > userLatitude && box.bottom_lat < userLatitude {
-//                            box.self.cnt += 1
-//
-//                        }
-//                    }
+                    //                    ForEach (boxList.box_list, id: \.index) {
+                    //                        box in
+                    //                        if box.left_lon < userLongitude && box.right_lon > userLongitude && box.top_lat > userLatitude && box.bottom_lat < userLatitude {
+                    //                            box.self.cnt += 1
+                    //
+                    //                        }
+                    //                    }
                     
-            
+                    
                     
                     
                     total.total += 1
@@ -117,16 +167,27 @@ struct CreateContentView: View {
                 }
                 ) {
                     Image("registerbutton")
+                        .shadow(color: Color.black, radius: 4, x: 3, y: 3)
                 }
             }
-
+            
             
         }
-       
+        .navigationTitle("업로드")
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showImagePicker) {
             OpenGallary(isShown: $showImagePicker, image: $image)
         }
+        .onAppear{
+            for family: String in UIFont.familyNames {
+                            print(family)
+                            for names : String in UIFont.fontNames(forFamilyName: family){
+                                print("=== \(names)")
+                            }
+                        }
+        }
     }
+    
 }
 
 struct CreateContentView_Previews: PreviewProvider {
