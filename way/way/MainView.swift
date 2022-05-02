@@ -181,8 +181,6 @@ struct MainView: View {
                                 ForEach (0..<10) {
                                     i in
                                     Rectangle()
-                                    // 자 생각해보자. 하나도 커밋 없을때는 ? 그레이색히야 (boxList.box_list[i].cnt == 0)
-                                    // 근데, 그 지역에서 올린적이 있다? 카운트가 달라질거고, 평균이랑 비교하는 로직 작성.
                                         .fill(boxList.box_list[i].isBorder ?
                                               (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
                                                 (Double(boxList.box_list[i].cnt) > total.step[1] ? Color(red: 0.15, green: 0.60, blue: 0.24) :
@@ -193,11 +191,14 @@ struct MainView: View {
                                                     )
                                                 )
                                               )
-                                              //                                              없는 지역이라면? clear
                                               : Color.clear
                                                 )
                                         .frame(width: 30, height: 30)
                                         .border(boxList.box_list[i].isBorder ? Color.gray : Color.clear)
+
+                                        
+
+                                    
                                 }
                             }
                             HStack(spacing: 0){
@@ -405,21 +406,48 @@ struct MainView: View {
                             HStack(spacing: 0){
                                 ForEach (110..<120) {
                                     i in
-                                    Rectangle()
-                                        .fill(boxList.box_list[i].isBorder ?
-                                              (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
-                                                (Double(boxList.box_list[i].cnt) > total.step[1] ? Color(red: 0.15, green: 0.60, blue: 0.24) :
-                                                    (Double(boxList.box_list[i].cnt) > total.step[0] ? Color(red: 0.48, green: 0.78, blue: 0.44) :
-                                                        (Double(boxList.box_list[i].cnt) > 0.0 ? Color(red: 0.78, green: 0.89, blue: 0.55) :
-                                                            Color(red: 0.93, green: 0.93, blue: 0.94)
+                                    if (boxList.box_list[i].cnt != 0) {
+                                        NavigationLink(destination: DetailView(s: self.$boxList.box_list[i].index)) {
+                                            Rectangle()
+                                            // 자 생각해보자. 하나도 커밋 없을때는 ? 그레이색히야 (boxList.box_list[i].cnt == 0)
+                                            // 근데, 그 지역에서 올린적이 있다? 카운트가 달라질거고, 평균이랑 비교하는 로직 작성.
+                                                .fill(boxList.box_list[i].isBorder ?
+                                                      (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
+                                                        (Double(boxList.box_list[i].cnt) > total.step[1] ? Color(red: 0.15, green: 0.60, blue: 0.24) :
+                                                            (Double(boxList.box_list[i].cnt) > total.step[0] ? Color(red: 0.48, green: 0.78, blue: 0.44) :
+                                                                (Double(boxList.box_list[i].cnt) > 0.0 ? Color(red: 0.78, green: 0.89, blue: 0.55) :
+                                                                    Color(red: 0.93, green: 0.93, blue: 0.94)
+                                                                )
+                                                            )
+                                                        )
+                                                      )
+                                                      // 없는 지역이라면? clear
+                                                      : Color.clear
+                                                        )
+                                                .frame(width: 30, height: 30)
+                                                .border(boxList.box_list[i].isBorder ? Color.gray : Color.clear)
+                                        }
+                                    }
+                                    else {
+                                        Rectangle()
+                                        // 자 생각해보자. 하나도 커밋 없을때는 ? 그레이색히야 (boxList.box_list[i].cnt == 0)
+                                        // 근데, 그 지역에서 올린적이 있다? 카운트가 달라질거고, 평균이랑 비교하는 로직 작성.
+                                            .fill(boxList.box_list[i].isBorder ?
+                                                  (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
+                                                    (Double(boxList.box_list[i].cnt) > total.step[1] ? Color(red: 0.15, green: 0.60, blue: 0.24) :
+                                                        (Double(boxList.box_list[i].cnt) > total.step[0] ? Color(red: 0.48, green: 0.78, blue: 0.44) :
+                                                            (Double(boxList.box_list[i].cnt) > 0.0 ? Color(red: 0.78, green: 0.89, blue: 0.55) :
+                                                                Color(red: 0.93, green: 0.93, blue: 0.94)
+                                                            )
                                                         )
                                                     )
-                                                )
-                                              )
-                                              : Color.clear
-                                                )
-                                        .frame(width: 30, height: 30)
-                                        .border(boxList.box_list[i].isBorder ? Color.gray : Color.clear)
+                                                  )
+                                                  // 없는 지역이라면? clear
+                                                  : Color.clear
+                                                    )
+                                            .frame(width: 30, height: 30)
+                                            .border(boxList.box_list[i].isBorder ? Color.gray : Color.clear)
+                                    }
                                 }
                                 
                             }

@@ -178,14 +178,6 @@ struct CreateContentView: View {
         .sheet(isPresented: $showImagePicker) {
             OpenGallary(isShown: $showImagePicker, image: $image)
         }
-        .onAppear{
-            for family: String in UIFont.familyNames {
-                            print(family)
-                            for names : String in UIFont.fontNames(forFamilyName: family){
-                                print("=== \(names)")
-                            }
-                        }
-        }
     }
     
 }

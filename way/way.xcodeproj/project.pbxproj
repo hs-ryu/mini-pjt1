@@ -22,6 +22,7 @@
 		0ECA94B1281E6D9900968F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA94AF281E6D9900968F55 /* Assets.xcassets */; };
 		0ECA94B2281E6D9900968F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA94AF281E6D9900968F55 /* Assets.xcassets */; };
 		0ECA94B7281EA5BD00968F55 /* BMJUAOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0ECA94B6281EA5BD00968F55 /* BMJUAOTF.otf */; };
+		0EE9DED1281F9E4B00E51E42 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE9DED0281F9E4B00E51E42 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		0EA150A7281B84CA0074AB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0ECA94AF281E6D9900968F55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		0ECA94B6281EA5BD00968F55 /* BMJUAOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUAOTF.otf; sourceTree = "<group>"; };
+		0EE9DED0281F9E4B00E51E42 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				0E58D2B72818FC8E009809F1 /* MainModel.swift */,
 				0EA150A3281A4E3F0074AB34 /* CreateContentView.swift */,
 				0EA150A5281A52DF0074AB34 /* CreateContentViewModel.swift */,
+				0EE9DED0281F9E4B00E51E42 /* DetailView.swift */,
 			);
 			path = way;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				0E58D28C2818E128009809F1 /* ContentView.swift in Sources */,
 				0E58D2B42818E2B5009809F1 /* MainView.swift in Sources */,
 				0E58D28A2818E128009809F1 /* wayApp.swift in Sources */,
+				0EE9DED1281F9E4B00E51E42 /* DetailView.swift in Sources */,
 				0EA150A6281A52DF0074AB34 /* CreateContentViewModel.swift in Sources */,
 				0E58D2B82818FC8E009809F1 /* MainModel.swift in Sources */,
 				0E58D2B62818FC7D009809F1 /* MainViewModel.swift in Sources */,

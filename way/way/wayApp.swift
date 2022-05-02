@@ -9,9 +9,6 @@ import SwiftUI
 
 @main
 struct wayApp: App {
-//    ? StateObject 안쓰면?
-
-    
     var body: some Scene {
         WindowGroup {
             MainView()

@@ -16,4 +16,7 @@ struct Box {
     var color: Color
     var isBorder: Bool
     var cnt: Int
+//    var region_contents_picture: [Image]
+//    var region_contents_title: [String]
+//    var region_contents_detail: [String]
 }
