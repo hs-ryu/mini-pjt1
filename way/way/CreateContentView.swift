@@ -85,6 +85,7 @@ struct CreateContentView: View {
                 }
                 Spacer().frame(height: 50)
                 VStack (alignment: .leading) {
+                    
                     Text("지금 어디신가요?")
                         .font(.custom("BMJUAOTF", size:18))
                     
@@ -135,7 +136,11 @@ struct CreateContentView: View {
                             if boxList.box_list[i].cnt == 1 {
                                 total.regionCnt += 1
                             }
-                            
+//                            boxList.box_list[i].region_contents_picture.append(image)
+                            boxList.box_list[i].region_contents_picture.append(image)
+                            boxList.box_list[i].region_contents_title.append(title)
+                            boxList.box_list[i].region_contents_detail.append(content)
+                            print(boxList.box_list[i])
                             break
                         }
                     }
@@ -162,6 +167,7 @@ struct CreateContentView: View {
                     }
                     print(total.step)
                     
+
                     
                     self.presentationMode.wrappedValue.dismiss()
                 }

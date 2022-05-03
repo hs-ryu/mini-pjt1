@@ -140,7 +140,7 @@ class BoxViewModel : ObservableObject {
             Box(index: 108, left_lon: 2, right_lon: 2, top_lat: 2,bottom_lat: 2, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: false, cnt: 0),
             Box(index: 109, left_lon: 2, right_lon: 2, top_lat: 2,bottom_lat: 2, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: false, cnt: 0),
             Box(index: 110, left_lon: 2, right_lon: 2, top_lat: 2,bottom_lat: 2, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: false, cnt: 0),
-            Box(index: 111, left_lon: 126, right_lon: 126.5, top_lat: 33.6,bottom_lat: 33, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: true, cnt: 8),
+            Box(index: 111, left_lon: 126, right_lon: 126.5, top_lat: 33.6,bottom_lat: 33, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: true, cnt: 8, region_contents_picture: [nil,Image("cafe")], region_contents_title: ["대정", "대정 카페"], region_contents_detail: ["대정 이쁘asdasdsadsadasdasasdasdsadasdsa네", "대정 카페 좋네"]),
             Box(index: 112, left_lon: 126.5, right_lon: 127, top_lat: 33.6,bottom_lat: 33, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: true, cnt: 5),
             Box(index: 113, left_lon: 2, right_lon: 2, top_lat: 2,bottom_lat: 2, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: false, cnt: 0),
             Box(index: 114, left_lon: 2, right_lon: 2, top_lat: 2,bottom_lat: 2, color: Color(red: 0.847, green: 0.847, blue: 0.847), isBorder: false, cnt: 0),
