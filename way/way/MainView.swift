@@ -27,7 +27,7 @@ struct MainView: View {
             VStack (spacing:0){
 //                Text("\(total.total)")
                 ZStack{
-                    AngularGradient(gradient: Gradient(colors: [Color(red: 193/255, green: 234/255, blue: 249/255), Color.blue]),
+                    AngularGradient(gradient: Gradient(colors: [Color(red: 0.96, green: 1.00, blue: 0.89), Color(red: 0.96, green: 1.00, blue: 0.89)]),
                                                     center: .topLeading,
                                     angle: .degrees(180 + 45)).ignoresSafeArea()
 //                    Color(red: 193/255, green: 234/255, blue: 249/255).ignoresSafeArea()
@@ -181,7 +181,7 @@ struct MainView: View {
                                 ForEach (0..<10) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -226,7 +226,7 @@ struct MainView: View {
                                 ForEach (10..<20) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -267,7 +267,7 @@ struct MainView: View {
                                 ForEach (20..<30) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -308,7 +308,7 @@ struct MainView: View {
                                 ForEach (30..<40) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -349,7 +349,7 @@ struct MainView: View {
                                 ForEach (40..<50) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -390,7 +390,7 @@ struct MainView: View {
                                 ForEach (50..<60) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -431,7 +431,7 @@ struct MainView: View {
                                 ForEach (60..<70) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -472,7 +472,7 @@ struct MainView: View {
                                 ForEach (70..<80) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -513,7 +513,7 @@ struct MainView: View {
                                 ForEach (80..<90) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -554,7 +554,7 @@ struct MainView: View {
                                 ForEach (90..<100) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -597,7 +597,7 @@ struct MainView: View {
                                 ForEach (100..<110) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :
@@ -638,7 +638,7 @@ struct MainView: View {
                                 ForEach (110..<120) {
                                     i in
                                     if (boxList.box_list[i].cnt != 0) {
-                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt)) {
+                                        NavigationLink(destination: DetailView(images:self.$boxList.box_list[i].region_contents_picture, titles:self.$boxList.box_list[i].region_contents_title, details:self.$boxList.box_list[i].region_contents_detail, cnt:self.$boxList.box_list[i].cnt, isClicked: self.$boxList.box_list[i].isClicked, dates: self.$boxList.box_list[i].dates)) {
                                             Rectangle()
                                                 .fill(boxList.box_list[i].isBorder ?
                                                       (Double(boxList.box_list[i].cnt) > total.step[2] ? Color(red: 0.10, green: 0.38, blue: 0.15) :

@@ -19,4 +19,6 @@ struct Box {
     var region_contents_picture: [Image?] = []
     var region_contents_title: [String] = []
     var region_contents_detail: [String] = []
+    var isClicked: [Bool] = []
+    var dates: [String] = []
 }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E45AB77282121F300C6215A /* DetailViewCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E45AB76282121F300C6215A /* DetailViewCopy.swift */; };
+		0E45AB7928226EA700C6215A /* esamanru OTF Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */; };
+		0E45AB7A28226EA700C6215A /* esamanru OTF Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */; };
+		0E45AB7B28226EA700C6215A /* esamanru OTF Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */; };
+		0E45AB7D2822713800C6215A /* esamanru OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7C2822713800C6215A /* esamanru OTF Light.otf */; };
+		0E45AB7E2822713800C6215A /* esamanru OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7C2822713800C6215A /* esamanru OTF Light.otf */; };
+		0E45AB7F2822713800C6215A /* esamanru OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7C2822713800C6215A /* esamanru OTF Light.otf */; };
 		0E58D28A2818E128009809F1 /* wayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E58D2892818E128009809F1 /* wayApp.swift */; };
 		0E58D28C2818E128009809F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E58D28B2818E128009809F1 /* ContentView.swift */; };
 		0E58D2912818E129009809F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E58D2902818E129009809F1 /* Preview Assets.xcassets */; };
@@ -43,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E45AB76282121F300C6215A /* DetailViewCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCopy.swift; sourceTree = "<group>"; };
+		0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Medium.otf"; sourceTree = "<group>"; };
+		0E45AB7C2822713800C6215A /* esamanru OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Light.otf"; sourceTree = "<group>"; };
 		0E58D2862818E128009809F1 /* way.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = way.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E58D2892818E128009809F1 /* wayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wayApp.swift; sourceTree = "<group>"; };
 		0E58D28B2818E128009809F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +133,7 @@
 				0EA150A3281A4E3F0074AB34 /* CreateContentView.swift */,
 				0EA150A5281A52DF0074AB34 /* CreateContentViewModel.swift */,
 				0EE9DED0281F9E4B00E51E42 /* DetailView.swift */,
+				0E45AB76282121F300C6215A /* DetailViewCopy.swift */,
 			);
 			path = way;
 			sourceTree = "<group>";
@@ -156,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				0ECA94B6281EA5BD00968F55 /* BMJUAOTF.otf */,
+				0E45AB7C2822713800C6215A /* esamanru OTF Light.otf */,
+				0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -264,8 +277,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E45AB7928226EA700C6215A /* esamanru OTF Medium.otf in Resources */,
 				0ECA94B0281E6D9900968F55 /* Assets.xcassets in Resources */,
 				0E58D2912818E129009809F1 /* Preview Assets.xcassets in Resources */,
+				0E45AB7D2822713800C6215A /* esamanru OTF Light.otf in Resources */,
 				0ECA94B7281EA5BD00968F55 /* BMJUAOTF.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +289,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E45AB7A28226EA700C6215A /* esamanru OTF Medium.otf in Resources */,
 				0ECA94B1281E6D9900968F55 /* Assets.xcassets in Resources */,
+				0E45AB7E2822713800C6215A /* esamanru OTF Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E45AB7B28226EA700C6215A /* esamanru OTF Medium.otf in Resources */,
 				0ECA94B2281E6D9900968F55 /* Assets.xcassets in Resources */,
+				0E45AB7F2822713800C6215A /* esamanru OTF Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +320,7 @@
 				0EA150A6281A52DF0074AB34 /* CreateContentViewModel.swift in Sources */,
 				0E58D2B82818FC8E009809F1 /* MainModel.swift in Sources */,
 				0E58D2B62818FC7D009809F1 /* MainViewModel.swift in Sources */,
+				0E45AB77282121F300C6215A /* DetailViewCopy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

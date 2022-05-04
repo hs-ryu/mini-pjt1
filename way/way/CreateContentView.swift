@@ -25,8 +25,12 @@ struct CreateContentView: View {
     @State var title: String = ""
     @State var content: String = ""
     
+    
+    
     //    var formatter_time = DateFormatter().dateFormat("HH:mm")
     //    var current_time_string = formatter_time.string(from: Date())
+    
+    @State var isTitle: Bool = false
     
     
     @StateObject var locationManager = LocationManager()
@@ -53,7 +57,7 @@ struct CreateContentView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.white)
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(red: 193/255, green: 234/255, blue: 249/255), lineWidth: 8)
+                                .stroke(Color(red: 0.78, green: 0.89, blue: 0.55), lineWidth: 8)
                             VStack{
                                 Image("imageselect")
                                     .resizable()
@@ -75,7 +79,7 @@ struct CreateContentView: View {
                     else {
                         ZStack{
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color(red: 193/255, green: 234/255, blue: 249/255), lineWidth: 8)
+                                .stroke(Color(red: 0.78, green: 0.89, blue: 0.55), lineWidth: 8)
                             image?
                                 .resizable()
 //                                .frame(width: 300, height: 300)
@@ -93,11 +97,11 @@ struct CreateContentView: View {
                         .padding()
                         .font(.custom("BMJUAOTF", size:15))
                         .foregroundColor(Color.black)
-                        .background(Color(red: 193/255, green: 234/255, blue: 249/255))
+                        .background(Color(red: 0.78, green: 0.89, blue: 0.55))
                         .lineSpacing(5)
                         .disableAutocorrection(true)
                         .frame(minWidth: 0, maxWidth: 300, minHeight: 0,  maxHeight: 60)
-                        .border(Color(red: 193/255, green: 234/255, blue: 249/255), width: 5)
+                        .border(Color(red: 0.78, green: 0.89, blue: 0.55), width: 5)
                         .cornerRadius(10)
                 }.frame(width: 300, alignment: .trailing)
                     
@@ -109,11 +113,11 @@ struct CreateContentView: View {
                         .padding()
                         .foregroundColor(Color.black)
                         .font(.custom("BMJUAOTF", size:15))
-                        .background(Color(red: 193/255, green: 234/255, blue: 249/255))
+                        .background(Color(red: 0.78, green: 0.89, blue: 0.55))
                         .lineSpacing(5)
                         .disableAutocorrection(true)
                         .frame(minWidth: 0, maxWidth: 300, minHeight: 0,  maxHeight: 150)
-                        .border(Color(red: 193/255, green: 234/255, blue: 249/255), width: 5)
+                        .border(Color(red: 0.78, green: 0.89, blue: 0.55), width: 5)
                         .cornerRadius(10)
                 }.frame(width: 300, alignment: .trailing)
                 Spacer()
@@ -126,64 +130,82 @@ struct CreateContentView: View {
                 Spacer()
                 Button(action: {
                     //                   위치 정보로 메인 색깔 바꾸는 로직 작성.
-                    
-                    for i in 0..<120 {
-                        if boxList.box_list[i].left_lon < userLongitude && boxList.box_list[i].right_lon > userLongitude && boxList.box_list[i].top_lat >  userLatitude && boxList.box_list[i].bottom_lat < userLatitude {
-                            boxList.box_list[i].cnt += 1
-                            print("성공")
-                            print("\(boxList.box_list[i].index)")
-                            print("\(boxList.box_list[i].cnt)")
-                            if boxList.box_list[i].cnt == 1 {
-                                total.regionCnt += 1
+                    if title == "" {
+                        self.isTitle = true
+                    }
+                    else {
+                        for i in 0..<120 {
+                            if boxList.box_list[i].left_lon < userLongitude && boxList.box_list[i].right_lon > userLongitude && boxList.box_list[i].top_lat >  userLatitude && boxList.box_list[i].bottom_lat < userLatitude {
+                                boxList.box_list[i].cnt += 1
+                                print("성공")
+                                print("\(boxList.box_list[i].index)")
+                                print("\(boxList.box_list[i].cnt)")
+                                if boxList.box_list[i].cnt == 1 {
+                                    total.regionCnt += 1
+                                }
+    //                            boxList.box_list[i].region_contents_picture.append(image)
+                                boxList.box_list[i].region_contents_picture.append(image)
+                                boxList.box_list[i].region_contents_title.append(title)
+                                boxList.box_list[i].region_contents_detail.append(content)
+                                boxList.box_list[i].isClicked.append(false)
+                                
+                                // 현재 시간 받아오기. dateFormat을 통해 형태 커스텀 가능.
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "yyyy.MM.dd"
+                                let current_date_string = formatter.string(from: Date())
+                                
+                                boxList.box_list[i].dates.append(current_date_string)
+                                
+                                print(boxList.box_list[i])
+                                break
                             }
-//                            boxList.box_list[i].region_contents_picture.append(image)
-                            boxList.box_list[i].region_contents_picture.append(image)
-                            boxList.box_list[i].region_contents_title.append(title)
-                            boxList.box_list[i].region_contents_detail.append(content)
-                            print(boxList.box_list[i])
-                            break
                         }
-                    }
-                    
-                    
-                    //                    ForEach (boxList.box_list, id: \.index) {
-                    //                        box in
-                    //                        if box.left_lon < userLongitude && box.right_lon > userLongitude && box.top_lat > userLatitude && box.bottom_lat < userLatitude {
-                    //                            box.self.cnt += 1
-                    //
-                    //                        }
-                    //                    }
-                    
-                    
-                    
-                    
-                    total.total += 1
-                    
-                    total.meanValue = total.total / total.regionCnt
-                    var cnt = 1.0
-                    for i in 0 ..< 4 {
-                        total.step[i] = total.meanValue * (cnt/4)
-                        cnt += 1
-                    }
-                    print(total.step)
-                    
+                        
+                        
+                        //                    ForEach (boxList.box_list, id: \.index) {
+                        //                        box in
+                        //                        if box.left_lon < userLongitude && box.right_lon > userLongitude && box.top_lat > userLatitude && box.bottom_lat < userLatitude {
+                        //                            box.self.cnt += 1
+                        //
+                        //                        }
+                        //                    }
+                        
+                        
+                        
+                        
+                        total.total += 1
+                        
+                        total.meanValue = total.total / total.regionCnt
+                        var cnt = 1.0
+                        for i in 0 ..< 4 {
+                            total.step[i] = total.meanValue * (cnt/4)
+                            cnt += 1
+                        }
+                        print(total.step)
+                        
 
-                    
-                    self.presentationMode.wrappedValue.dismiss()
+                        
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+
                 }
-                ) {
+                ){
                     Image("registerbutton")
                         .shadow(color: Color.black, radius: 4, x: 3, y: 3)
                 }
+                
             }
+            .alert("장소를 입력해 주세요!", isPresented: $isTitle){}
             
             
         }
+        
         .navigationTitle("업로드")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showImagePicker) {
             OpenGallary(isShown: $showImagePicker, image: $image)
         }
+        
     }
     
 }

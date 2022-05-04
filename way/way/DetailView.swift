@@ -12,6 +12,8 @@ struct DetailView: View {
     @Binding var titles: [String]
     @Binding var details: [String]
     @Binding var cnt: Int
+    @Binding var isClicked: [Bool]
+    @Binding var dates: [String]
     
     var body: some View {
         VStack {
@@ -24,56 +26,50 @@ struct DetailView: View {
                 
                 
                 
-                ForEach (0..<images.count, id: \.self) {
+                ForEach ((0..<images.count).reversed(), id: \.self) {
                     i in
-                    VStack{
-                        HStack(spacing:0){
-                            //그림 들어갈곳
-                            // 옵셔널 바인딩
+                    ZStack{
+                        ZStack{
                             if let image = images[i]{
                                 image
                                     .resizable()
                                     .scaledToFit()
-//                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 200, height: 200)
-                                    .background(Color.black)
-                                
                             }
                             else {
-                                Rectangle()
+                                Image("nopicture").resizable().scaledToFit()
                             }
                             
-                            VStack(alignment: .leading){
-                                //제목, 글 들어갈 곳
-                                VStack(){
+
+                        }.frame(width: 400, height: 400)
+                            .background(Color.black)
+                            .onTapGesture(count: 1){
+                                self.isClicked[i].toggle()
+                            }
+                            .opacity(isClicked[i] ? 0.2 : 1.0)
+
+                        if isClicked[i] {
+                            VStack(spacing: 0){
+                                VStack{
                                     Text("\(titles[i])")
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-//                                        .background(Color.red)
-                                        .font(.custom("BMJUAOTF", size:25))
-                                }.frame(width: 200)
-                                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 0))
-//                                    .background(Color.yellow)
-                                Spacer()
-                                    .frame(height: 15)
+                                        .frame(width: 200, height: 50)
+                                        .font(.custom("esamanru OTF Medium",size:25))
+                                    Text("\(dates[i])")
+                                        .font(.custom("esamanru OTF Light", size: 10))
+                                }.frame(width: 400, height: 100, alignment:.bottom)
+                                
                                 VStack{
                                     Text("\(details[i])")
-                                        .frame(maxWidth: 180, alignment: .leading)
-//                                        .background(Color.green)
-                                        .font(.custom("BMJUAOTF", size:18))
-                                }.frame(width: 200)
-//                                    .background(Color.yellow)
+                                        .frame(height: 200)
+                                        .font(.custom("esamanru OTF Light", size:15))
+                                }.frame(width: 200, height: 300, alignment:.top)
                                 
-                                
-                                Spacer()
                                 
                             }
-                            .frame(width: 200, height: 200, alignment: .leading)
-                            .border(Color.gray)
-                            
                         }
-
-                    }.frame(width: 400, height: 200)
-                        .border(Color.gray)
+                        
+                    }.frame(width: 400, height: 400)
+                    
+                    
                 }
                 
                 .frame(maxWidth: .infinity)
