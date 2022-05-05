@@ -23,9 +23,6 @@ struct DetailView: View {
                 .font(.custom("BMJUAOTF", size:25))
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
             ScrollView (){
-                
-                
-                
                 ForEach ((0..<images.count).reversed(), id: \.self) {
                     i in
                     ZStack{
@@ -76,6 +73,11 @@ struct DetailView: View {
             }
             .navigationTitle("내 기록")
             .navigationBarTitleDisplayMode(.inline)
+            .onDisappear{
+                for i in (0..<isClicked.count) {
+                    isClicked[i] = false
+                }
+            }
         }
     }
 }
