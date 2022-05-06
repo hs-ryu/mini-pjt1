@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E45AB77282121F300C6215A /* DetailViewCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E45AB76282121F300C6215A /* DetailViewCopy.swift */; };
 		0E45AB7928226EA700C6215A /* esamanru OTF Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */; };
 		0E45AB7A28226EA700C6215A /* esamanru OTF Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */; };
 		0E45AB7B28226EA700C6215A /* esamanru OTF Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */; };
@@ -52,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E45AB76282121F300C6215A /* DetailViewCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCopy.swift; sourceTree = "<group>"; };
 		0E45AB7828226EA700C6215A /* esamanru OTF Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Medium.otf"; sourceTree = "<group>"; };
 		0E45AB7C2822713800C6215A /* esamanru OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Light.otf"; sourceTree = "<group>"; };
 		0E58D2862818E128009809F1 /* way.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = way.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +136,6 @@
 				0EA150A3281A4E3F0074AB34 /* CreateContentView.swift */,
 				0EA150A5281A52DF0074AB34 /* CreateContentViewModel.swift */,
 				0EE9DED0281F9E4B00E51E42 /* DetailView.swift */,
-				0E45AB76282121F300C6215A /* DetailViewCopy.swift */,
 			);
 			path = way;
 			sourceTree = "<group>";
@@ -336,7 +333,6 @@
 				0E96A28C28237A9200DA4CCE /* AppDelegate.swift in Sources */,
 				0E58D2B82818FC8E009809F1 /* MainModel.swift in Sources */,
 				0E58D2B62818FC7D009809F1 /* MainViewModel.swift in Sources */,
-				0E45AB77282121F300C6215A /* DetailViewCopy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
